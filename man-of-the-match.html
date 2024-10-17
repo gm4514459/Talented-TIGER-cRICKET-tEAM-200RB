@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Man of the Match - Talented Tiger Cricket Team</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #8B0000; /* Off-red color */
+            padding: 10px 20px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            flex-wrap: wrap;
+        }
+
+        /* Logo styling for circular look */
+        header .team-logo img {
+            width: 80px; /* Smaller logo size for mobile */
+            height: 80px;
+            border-radius: 50%; /* Circular logo */
+            animation: logoSlide 2s ease-out;
+        }
+
+        @keyframes logoSlide {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Navigation Styling */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-grow: 1;
+            padding: 0 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap; /* Wrap items for small screens */
+            justify-content: center; /* Center items */
+            width: 100%;
+        }
+
+        nav ul li {
+            animation: navItems 2s ease-out;
+        }
+
+        @keyframes navItems {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #FFD700;
+        }
+
+        /* Main Section */
+        main {
+            padding: 40px 20px;
+            text-align: center;
+            animation: mainContent 2s ease-out;
+        }
+
+        @keyframes mainContent {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        main h1 {
+            animation: fromLeft 2s ease-out;
+        }
+
+        @keyframes fromLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        p {
+            animation: fromRight 2s ease-out;
+        }
+
+        @keyframes fromRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            animation: imageSlide 2s ease-out;
+        }
+
+        @keyframes imageSlide {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #8B0000;
+            padding: 30px 20px;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            animation: footerContent 2s ease-out;
+        }
+
+        @keyframes footerContent {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .social-media {
+            margin-top: 10px;
+        }
+
+        .social-media .social-icon {
+            color: #fff;
+            font-size: 28px;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-media .social-icon:hover {
+            color: #FFD700;
+        }
+
+        /* Links */
+        a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design: For mobile devices */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column; /* Stack navigation links vertically */
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            header {
+                justify-content: center;
+                text-align: center;
+                padding: 10px;
+            }
+
+            header .team-logo img {
+                width: 70px; /* Slightly smaller logo */
+                height: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="team-logo">
+            <img src="PROFILE.jpeg" alt="Talented Tiger Cricket Team">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="about.html">About TTCT</a></li>
+                <li><a href="schedule.html">Next Match</a></li>
+                <li><a href="rankings.html">Player Rankings</a></li>
+                <li><a href="players.html">Meet Our Players</a></li>
+                <li><a href="man-of-the-match.html">Man of the Match</a></li>
+                <li><a href="map.html">Our Ground</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1>Our Man of the Match</h1>
+                <p>This section highlights the outstanding player of our recent matches. Stay tuned for updates on our current Man of the Match!</p>
+                <b><p>1: Muhammed Zain vs 156 Dera (13-10-2024) <br> HIT 44 RUNS WITH 05 SIXES AND 2 FOURS AND STRIKE RATE 176:00</p></b>
+            </div>
+        </section>
+    </main>
+
+    <!-- Image -->
+    <img src="motm.jpg" alt="Talented Tiger Cricket Team">
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>Developed by <a href="https://www.facebook.com/share/pg5jpbJGDxEtxFTW/?mibextid=qi2Omg">SE Ghulam Mustafa</a></p>
+            <h4>All Rights Reserved &copy; TTCT 2024-25</h4>
+            <div class="social-media">
+                <a href="https://facebook.com/https://www.facebook.com/share/pg5jpbJGDxEtxFTW/?mibextid=qi2Omg" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com/ttct" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/ttct" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/company/ttct" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

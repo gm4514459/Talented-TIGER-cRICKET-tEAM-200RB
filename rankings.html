@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Rankings - Talented Tiger Cricket Team</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Logo in Circle */
+        .team-logo img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+            padding: 5px 10px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Hover and Active Link Effects */
+        nav ul li a:hover {
+            color: #ff6600;
+            transform: scale(1.1);
+        }
+
+        /* Main Section */
+        main {
+            padding: 40px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        /* Left-Right Animation for Player Rankings */
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .ranking-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .ranking-item {
+            width: 45%;
+            background-color: #f9f9f9;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+            animation-duration: 2s;
+            animation-fill-mode: forwards; /* Keep final state after animation */
+            transition: transform 0.5s ease;
+            cursor: pointer;
+        }
+
+        .ranking-item:nth-child(odd) {
+            animation-name: slideInFromLeft;
+        }
+
+        .ranking-item:nth-child(even) {
+            animation-name: slideInFromRight;
+        }
+
+        /* Profile Image Circle */
+        .ranking-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .ranking-item h3 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .ranking-item p {
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        /* Full-screen modal styling */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 80%;
+            max-height: 80%;
+            margin: auto;
+            animation: zoomIn 0.5s ease-in-out;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            padding: 5px;
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 1em;
+        }
+
+        footer h4 {
+            margin-top: 5px;
+            font-size: 1.2em;
+            color: #ff6600;
+        }
+
+        .social-media {
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #ff6600;
+            transform: scale(1.2);
+        }
+
+        /* New Positioning for "Developed by SE Ghulam Mustafa" on right side of Footer */
+        .footer-right {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            font-size: 1.1em;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .ranking-item {
+                width: 80%;
+                margin: 10px auto;
+            }
+
+            main h1 {
+                font-size: 2em;
+            }
+
+            main p {
+                font-size: 1em;
+            }
+
+            footer h4 {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-logo img {
+                width: 60px;
+            }
+
+            main h1 {
+                font-size: 1.5em;
+            }
+
+            main p {
+                font-size: 0.9em;
+            }
+
+            footer h4 {
+                font-size: 0.9em;
+            }
+
+            .footer-right {
+                font-size: 0.9em;
+                right: 10px;
+                bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="team-logo">
+                <img src="PROFILE.jpeg" alt="Talented Tiger Cricket Team">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="about.html">About TTCT</a></li>
+                    <li><a href="schedule.html">Next Match</a></li>
+                    <li><a href="rankings.html">Player Rankings</a></li>
+                    <li><a href="players.html">Meet Our Players</a></li>
+                    <li><a href="man-of-the-match.html">Man of the Match</a></li>
+                    <li><a href="map.html">Our Ground</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1>Player Rankings</h1>
+                <p>Our players are ranked based on their performance and contributions to the team. Here are the top-ranked players:</p>
+                <B><h1> BATSMAN RANKING </h1></B>
+                <div class="ranking-list">
+                    <!-- Player 1 -->
+                    <div class="ranking-item">
+                        <img src="ZBR.JPEG" alt="M Zain" class="player-img">
+                        <h3>M Zain</h3>
+                        <p>01 Matches,44 Runs<br> 05 fours, 02 sixes <br> SR:176:00<br> 50's: 00 / 100's: 00</p>
+                    </div>
+                    <!-- Player 2 -->
+                    <div class="ranking-item">
+                        <img src="NBR.JPEG" alt="M Noman Iqrar" class="player-img">
+                        <h3>M Noman Iqrar</h3>
+                        <p>01 Matches,25 Runs<br> 01 fours, 02 sixes <br> SR:147:00<br> 50's: 00 / 100's: 00</p>
+                    </div>
+                    <!-- Player 3 -->
+                    <div class="ranking-item">
+                        <img src="SBR.JPEG" alt="M Shaheer" class="player-img">
+                        <h3>M Shaheer</h3>
+                        <p>01 Matches,21 Runs<br> 02 fours, 00 sixes <br> SR:80:00<br> 50's: 00 / 100's: 00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <B><h1> BOWLER RANKING </h1></B>
+        <div class="ranking-list">
+            <!-- Player 1 -->
+            <div class="ranking-item">
+                <img src="player1.jpg" alt="Abdul Hanan" class="player-img">
+                <h3>Abdul Hanan</h3>
+                <p>Matches 01 <br>47 Runs, 04 Wickets<br> ECO:12.8<br> 05 wicket's: 00</p>
+            </div>
+            <!-- Player 2 -->
+            <div class="ranking-item">
+                <img src="MWBR.jpeg" alt="M Wasim" class="player-img">
+                <h3>M Wasim</h3>
+                <p>Matches 01 <br>23 Runs, 03 Wickets<br> ECO:5.8<br> 05 wicket's: 00</p>
+            </div>
+            <!-- Player 3 -->
+            <div class="ranking-item">
+                <img src="FIBR.jpeg" alt="M Farhan Iqrar" class="player-img">
+                <h3>M Farhan Iqrar</h3>
+                <p>Matches 01 <br>30 Runs, 02 Wickets<br> ECO:7.5<br> 05 wicket's: 00</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Full-Screen Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close-btn">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Zoomed Image">
+        </div>
+    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two Images in One Line</title>
+  <style>
+    img {
+      display: inline-block;
+      width: 200px; /* Set a specific width */
+      height: auto; /* Maintain aspect ratio */
+      margin-right: 10px; /* Add some space between the images */
+    }
+  </style>
+</head>
+<body>
+<img src="prb.png" alt="Batsman Ranking" class="player-img"style="width:500px;height:600px;">
+<img src="pwbw.png" alt="Batsman Ranking" class="player-img"style="width:500px;height:600px;">
+</body>
+</html>
+
+<body>
+
+</body>    
+<footer>
+        <p>All Rights Reserved &copy; TTCT 2024-25</p>
+        <div class="social-media">
+            <a href="https://facebook.com" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <div class="footer-right">Developed by SE Ghulam Mustafa</div>
+    </footer>
+
+    <script>
+        // Get modal elements
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const closeBtn = document.querySelector(".close-btn");
+
+        // Add click event listeners to each player image
+        document.querySelectorAll('.player-img').forEach(item => {
+            item.addEventListener('click', function () {
+                const imgSrc = this.src; // Get the source of the clicked image
+                modalImg.src = imgSrc;  // Set it as the source of the modal image
+                modal.style.display = "flex"; // Display the modal
+            });
+        });
+
+        // Close modal when the close button is clicked
+        closeBtn.addEventListener('click', function () {
+            modal.style.display = "none"; // Hide modal
+        });
+
+        // Close modal when user clicks outside the modal content
+        window.addEventListener('click', function (e) {
+            if (e.target == modal) {
+                modal.style.display = "none"; // Hide modal when clicking outside
+            }
+        });
+    </script>
+</body>
+</html>

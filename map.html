@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Ground - Talented Tiger Cricket Team</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #8B0000; /* Off-red color */
+            padding: 20px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            flex-wrap: wrap;
+            animation: headerAnimation 1.5s ease-out;
+        }
+
+        /* Header Animation */
+        @keyframes headerAnimation {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Logo styling for circular look */
+        header .team-logo img {
+            width: 80px; /* Adjusted for mobile */
+            height: 80px;
+            border-radius: 50%;
+            animation: logoSlide 2s ease-out;
+        }
+
+        @keyframes logoSlide {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Navigation styling with animation */
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            animation: navItems 2s ease-out;
+        }
+
+        @keyframes navItems {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            opacity: 0;
+            animation: navLinks 2s ease forwards;
+            animation-delay: 0.3s; /* Delay added for staggered animation */
+        }
+
+        @keyframes navLinks {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main section with animation */
+        main {
+            padding: 40px 20px;
+            text-align: center;
+            animation: mainContent 2s ease-out;
+        }
+
+        @keyframes mainContent {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Section heading */
+        h1 {
+            animation: fromTop 1s ease-out;
+        }
+
+        @keyframes fromTop {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Map container */
+        #map {
+            width: 100%;
+            height: 400px;
+            background-color: #ddd;
+            margin: 20px 0;
+            animation: mapAnimation 2s ease-out;
+        }
+
+        @keyframes mapAnimation {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #8B0000;
+            padding: 30px 20px;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            animation: footerContent 2s ease-out;
+        }
+
+        @keyframes footerContent {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Social Media Icons */
+        .social-media {
+            margin-top: 10px;
+        }
+
+        .social-media .social-icon {
+            color: #fff;
+            font-size: 28px;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-media .social-icon:hover {
+            color: #FFD700;
+        }
+
+        /* Links */
+        a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design for Mobile Devices */
+        @media (max-width: 768px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            header .team-logo img {
+                width: 70px;
+                height: 70px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            main {
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="team-logo">
+            <img src="PROFILE.jpeg" alt="Talented Tiger Cricket Team">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="about.html">About TTCT</a></li>
+                <li><a href="schedule.html">Next Match</a></li>
+                <li><a href="rankings.html">Player Rankings</a></li>
+                <li><a href="players.html">Meet Our Players</a></li>
+                <li><a href="man-of-the-match.html">Man of the Match</a></li>
+                <li><a href="map.html">Our Ground</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="section">
+            
+<img src="OG.jpg" alt="Girl in a jacket" style="width:1600;height:1200;">
+            </div>
+        </section>
+    </main>
+
+    <!-- Image Section -->
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>Developed by <a href="https://www.facebook.com/share/pg5jpbJGDxEtxFTW/?mibextid=qi2Omg">SE Ghulam Mustafa</a></p>
+            <h4>All Rights Reserved &copy; TTCT 2024-25</h4>
+            <div class="social-media">
+                <a href="https://facebook.com/https://www.facebook.com/share/pg5jpbJGDxEtxFTW/?mibextid=qi2Omg" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com/ttct" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/ttct" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/company/ttct" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
